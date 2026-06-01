@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center mb-5">
+        <h1 class="display-4"><i data-feather="truck" class="mb-3"></i><br>Welcome to Transport Booking System</h1>
+        <p class="lead">Your reliable partner for all transportation needs</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i data-feather="map" class="mb-3" style="width: 48px; height: 48px;"></i>
+                <h3>Nationwide Coverage</h3>
+                <p>We operate across the country, ensuring your goods reach anywhere safely.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i data-feather="clock" class="mb-3" style="width: 48px; height: 48px;"></i>
+                <h3>24/7 Service</h3>
+                <p>Our transport services are available round the clock to meet your needs.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i data-feather="shield" class="mb-3" style="width: 48px; height: 48px;"></i>
+                <h3>Secure Transport</h3>
+                <p>Your goods are fully insured and handled with utmost care.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12 text-center">
+        <a href="{{ url_for('booking') }}" class="btn btn-primary btn-lg">
+            <i data-feather="calendar"></i> Book Transport Now
+        </a>
+    </div>
+</div>
+{% endblock %}

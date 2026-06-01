@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-container > div {
+    background-color: rgb(221, 233, 237);
+    width: 165px;
+    margin: 25px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.flex-container div:hover {
+    cursor: pointer;
+    background-color: rgb(100, 159, 179);
+}
+
+.card {
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    border: 3px solid transparent; /* Add border property */
+    transition: border 0.3s; /* Adjust the transition property */
+    border-radius: 20px;
+}
+
+.card:hover {
+    border: 3px solid #18dde9; /* Change the border color here */
+    box-shadow: 0px 0px 20px #18dde9;
+}
+
+.child-card {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    transition: all 0.3s;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.card:hover .child-card {
+    transform: scale(0.95);
+    border-radius: 20px;
+}
+
+ footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+main {
+    padding: 20px;
+    min-height: calc(100vh - 100px);
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Light grey background */
+            color: #333; /* Dark text color */
+        }
+.fixed-button {
+            position: fixed;
+            bottom: 20px; /* Adjust the position as needed */
+            right: 20px; /* Adjust the position as needed */
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            font-size: 24px; /* Increased font size */
+            height: auto;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff; /* White form background */
+border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ddd; /* Light grey border */
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fff; /* White input background */
+            color: #333; /* Dark text color */
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        input:hover, textarea:hover, select:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle box shadow on hover */
+            transform: translate(0, -2px); /* Uplifted effect on hover */
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+<script>
+    function updateOptions() {
+        var decorType = document.getElementById('decor').value;
+        var colorSelect = document.getElementById('color');
+
+        // Reset and disable color dropdown
+        colorSelect.innerHTML = '<option value="" disabled selected>Select Color</option>';
+        colorSelect.disabled = true;
+
+        // Check if decor type is selected
+        if (decorType === '') {
+            alert('Please select decor type first.');
+            return;
+        }
+
+        // Populate color dropdown based on decor type
+        if (decorType === 'home') {
+            addOption(colorSelect, 'PANTONE');
+            addOption(colorSelect, 'SHERWIN WILLIIAMS');
+            addOption(colorSelect, 'BEHR');
+        } else if (decorType === 'office') {
+            addOption(colorSelect, 'BOLD BLACK');
+            addOption(colorSelect, 'CLASSY BLUE');
+        } else if (decorType === 'farmhouse') {
+            addOption(colorSelect, 'Eclectic Red Brick Accent Porch');
+            addOption(colorSelect, 'Coastal Patio with Grill & Pool');
+        }
+
+        // Enable color dropdown
+        colorSelect.disabled = false;
+    }
+
+    function addOption(select, optionText) {
+        var option = document.createElement('option');
+        option.text = optionText;
+        select.add(option);
+    }
+</script>
+</head>
+<body>
+<header>Information</header>
+    <form action="process_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="number">Number:</label>
+        <input type="tel" id="number" name="number" pattern="[0-9]{10}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <label for="decor">Select Decor:</label>
+        <select id="decor" name="decor" onchange="updateOptions()">
+            <option value="" disabled selected>Select Decor Type</option>
+            <option value="home">Home</option>
+            <option value="office">Office</option>
+            <option value="farmhouse">Farmhouse</option>
+        </select>
+
+        <label for="color">Select Color:</label>
+        <select id="color" name="color" disabled>
+            <option value="" disabled selected>Select Color</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function updateOptions() {
+            var decorType = document.getElementById('decor').value;
+            var colorSelect = document.getElementById('color');
+
+            // Reset and disable color dropdown
+            colorSelect.innerHTML = '<option value="" disabled selected>Select Color</option>';
+            colorSelect.disabled = true;
+
+            // Populate color dropdown based on decor type
+            if (decorType === 'home') {
+                addOption(colorSelect, 'PANTONE');
+                addOption(colorSelect, 'SHERWIN WILLIIAMS');
+                addOption(colorSelect, 'BEHR');
+            } else if (decorType === 'office') {
+                addOption(colorSelect, 'BOLD BLACK');
+                addOption(colorSelect, 'CLASSY BLUE');
+            } else if (decorType === 'farmhouse') {
+                addOption(colorSelect, 'Eclectic Red Brick Accent Porch');
+                addOption(colorSelect, 'Coastal Patio with Grill & Pool');
+            }
+
+            // Enable color dropdown
+            colorSelect.disabled = false;
+        }
+
+        function addOption(select, optionText) {
+            var option = document.createElement('option');
+            option.text = optionText;
+            select.add(option);
+        }
+    </script>
+ <button class="fixed-button" onclick="goToMainPage()">Back to Main Page</button>
+
+    <script>
+        function goToMainPage() {
+            // Replace 'main.html' with the actual file or URL of your main page
+            window.location.href = 'pure interior design.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<html>
+<head>
+  <title>Design</title>
+  <link rel="stylesheet" href="style1.css">
+  <script>
+    function showContent(contentId) {
+      // Hide all content sections
+      var contents = document.getElementsByClassName('toggle-content');
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+      }
+
+      // Show the selected content
+      var selectedContent = document.getElementById(contentId);
+      if (selectedContent) {
+        selectedContent.style.display = 'grid';
+      }
+    }
+  </script>
+</head>
+<body style="background-color: #f4f4f4;">
+  <header style="background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;"><h1>OUR DESIGNS</h1></header>
+  <div class="flex-container">
+    <a href="javascript:void(0);" class="toggle-text" onclick="showContent('home')">Home decor</a>
+    <a href="javascript:void(0);" class="toggle-text" onclick="showContent('about')">Office decor</a>
+    <a href="javascript:void(0);" class="toggle-text" onclick="showContent('contact')">Farmhouse</a>
+  </div>
+  <hr>
+  <div class="toggle-content" id="home">
+    <div class="image-container">
+      <h2>PANTONE</h2>
+      <img src="home1.webp">
+      <img src="home2.webp">
+      <img src="home3.webp">
+      <img src="home4.webp">
+      <img src="home5.webp">
+    </div>
+    <div class="image-container">
+      <h2>SHERWIN WILLIIAMS</h2>
+      <img src="home6.webp">
+      <img src="home7.webp">
+      <img src="home8.webp">
+      <img src="home9.webp">
+      <img src="home10.webp">
+    </div>
+    <div class="image-container">
+      <h2>BEHR</h2>
+      <img src="home11.webp">
+      <img src="home12.webp">
+      <img src="home13.webp">
+      <img src="home14.webp">
+      <img src="home15.webp">
+    </div>
+  </div>
+
+  <div class="toggle-content" id="about">
+    <div class="image-container">
+      <h2>BOLD BLACK</h2>
+      <img src="office1.webp">
+      <img src="office2.webp">
+      <img src="office3.webp">
+      <img src="office4.webp">
+      <img src="office5.webp">
+      <img src="office6.webp">
+    </div>
+    <div class="image-container">
+      <h2>CLASSY BLUE</h2>
+      <img src="office7.webp">
+      <img src="office8.webp">
+      <img src="office9.webp">
+      <img src="office10.webp">
+      <img src="office11.webp">
+      <img src="office12.webp">
+    </div>
+  </div>
+
+  <div class="toggle-content" id="contact">
+      <div class="image-container">
+      <h2>Eclectic Red Brick Accent Porch</h2>
+      <img src="farmhouse1.webp">
+      <img src="farmhouse2.webp">
+      <img src="farmhouse3.webp">
+      <img src="farmhouse4.webp">
+    </div>
+    <div class="image-container">
+      <h2>Coastal Patio with Grill & Pool</h2>
+      <img src="farmhouse5.webp">
+      <img src="farmhouse6.webp">
+      <img src="farmhouse7.webp">
+      <img src="farmhouse8.webp">
+
+    </div>
+  </div>
+<footer>
+        <p>© 2024 Interior Design Services. All rights reserved.</p>
+    </footer>
+<button class="fixed-button" onclick="goToMainPage()">Back to Main Page</button>
+
+    <script>
+        function goToMainPage() {
+            // Replace 'main.html' with the actual file or URL of your main page
+            window.location.href = 'pure interior design.html';
+        }
+    </script>
+</body>
+</html>

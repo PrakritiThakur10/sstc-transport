@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            padding: 20px;
+min-height: calc(100vh - 100px);
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .design-card {
+            width: 30%;
+            height: 100%;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .design-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+            footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: relative; /* Change fixed to relative */
+    width: 100%;
+    clear: both; /* Clear any floats from the section */
+}
+   .fixed-button {
+            position: fixed;
+            bottom: 20px; /* Adjust the position as needed */
+            right: 20px; /* Adjust the position as needed */
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Interior Design Services</h1>
+    </header>
+    <main>
+        <h2>Welcome to Our Interior Design Services</h2>
+        <section>
+            <div class="design-card">
+                <img src="design1.webp" alt="Design 1">
+            </div>
+
+            <div class="design-card">
+                <img src="design2.webp" alt="Design 2">
+            </div>
+
+            <div class="design-card">
+                <img src="design3.jpg" alt="Design 3">
+            </div>
+        </section>
+    </main>
+   <footer>
+        <p>© 2024 Interior Design Services. All rights reserved.</p>
+    </footer>
+ <button class="fixed-button" onclick="goToMainPage()">Back to Main Page</button>
+
+    <script>
+        function goToMainPage() {
+            // Replace 'main.html' with the actual file or URL of your main page
+            window.location.href = 'pure interior design.html';
+        }
+    </script>
+</body>
+</html>

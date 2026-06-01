@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style=" background-color: #f4f4f4">
+    <header>
+        <h1> Pure Interior</h1>
+    </header>
+   <div class="flex-container">
+  
+  <div class="card">
+    <div class="child-card"><a href="home.html">HOME</a></div>
+  </div>
+ <div class="card">
+    <div class="child-card"><a href="design.html">DESIGN</a></div>
+  </div>
+ <div class="card">
+    <div class="child-card"><a href="booking.html">BOOKING</a></div>
+  </div>
+</div>
+<footer>
+        <p>© 2024 Interior Design Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>

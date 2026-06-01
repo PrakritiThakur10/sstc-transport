@@ -1,0 +1,65 @@
+/* Custom styles to complement Bootstrap */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.tracking-info {
+    padding: 20px;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 5px;
+}
+
+main {
+    flex: 1;
+    margin-bottom: 60px;
+}
+
+.footer {
+    margin-top: auto;
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Form styles */
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+/* Icon styling */
+[data-feather] {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: text-bottom;
+}

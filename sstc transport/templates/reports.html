@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Booking Reports</h2>
+    
+    <ul class="nav nav-tabs mb-4" id="reportTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="today-tab" data-bs-toggle="tab" data-bs-target="#today" type="button" role="tab">Today</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="week-tab" data-bs-toggle="tab" data-bs-target="#week" type="button" role="tab">This Week</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab">This Month</button>
+        </li>
+    </ul>
+    
+    <div class="tab-content" id="reportTabContent">
+        <!-- Today's Bookings -->
+        <div class="tab-pane fade show active" id="today" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between">
+                    <h5>Today's Bookings</h5>
+                    <h5>Total: ₹{{ today_total|round(2) }}</h5>
+                </div>
+                <div class="card-body">
+                    {% if today_bookings %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Customer</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Driver</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for booking in today_bookings %}
+                                    <tr>
+                                        <td><a href="/tracking/{{ booking.id }}">{{ booking.id }}</a></td>
+                                        <td>{{ booking.name }}</td>
+                                        <td>{{ booking.pickup }}</td>
+                                        <td>{{ booking.dropoff }}</td>
+                                        <td>{{ booking.driver.name }}</td>
+                                        <td>₹{{ booking.price }}</td>
+                                        <td>
+                                            <span class="badge bg-success">{{ booking.status }}</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-center">No bookings found for today.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- This Week's Bookings -->
+        <div class="tab-pane fade" id="week" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between">
+                    <h5>This Week's Bookings</h5>
+                    <h5>Total: ₹{{ week_total|round(2) }}</h5>
+                </div>
+                <div class="card-body">
+                    {% if week_bookings %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Customer</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Driver</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for booking in week_bookings %}
+                                    <tr>
+                                        <td><a href="/tracking/{{ booking.id }}">{{ booking.id }}</a></td>
+                                        <td>{{ booking.name }}</td>
+                                        <td>{{ booking.pickup }}</td>
+                                        <td>{{ booking.dropoff }}</td>
+                                        <td>{{ booking.driver.name }}</td>
+                                        <td>₹{{ booking.price }}</td>
+                                        <td>
+                                            <span class="badge bg-success">{{ booking.status }}</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-center">No bookings found for this week.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- This Month's Bookings -->
+        <div class="tab-pane fade" id="month" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between">
+                    <h5>This Month's Bookings</h5>
+                    <h5>Total: ₹{{ month_total|round(2) }}</h5>
+                </div>
+                <div class="card-body">
+                    {% if month_bookings %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Customer</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Driver</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for booking in month_bookings %}
+                                    <tr>
+                                        <td><a href="/tracking/{{ booking.id }}">{{ booking.id }}</a></td>
+                                        <td>{{ booking.name }}</td>
+                                        <td>{{ booking.pickup }}</td>
+                                        <td>{{ booking.dropoff }}</td>
+                                        <td>{{ booking.driver.name }}</td>
+                                        <td>₹{{ booking.price }}</td>
+                                        <td>
+                                            <span class="badge bg-success">{{ booking.status }}</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-center">No bookings found for this month.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

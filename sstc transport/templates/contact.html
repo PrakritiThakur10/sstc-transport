@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title mb-0">Contact Us</h3>
+            </div>
+            <div class="card-body">
+                {% if message %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+                {% endif %}
+                <form method="POST" action="{{ url_for('contact') }}">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="input-group">
+                            <input type="tel" 
+                                   class="form-control" 
+                                   id="phone" 
+                                   name="phone" 
+                                   pattern="\+91[0-9]{10}"
+                                   placeholder="+91XXXXXXXXXX"
+                                   title="Please enter phone number in format: +91 followed by 10 digits"
+                                   required>
+                            <span class="input-group-text" data-bs-toggle="tooltip" 
+                                  data-bs-placement="right" 
+                                  title="Enter your 10-digit phone number with +91 prefix">
+                                <i data-feather="help-circle"></i>
+                            </span>
+                        </div>
+                        <div class="form-text">Format: +91 followed by your 10 digit number (e.g., +919876543210)</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+
+                <div class="mt-5">
+                    <h4>Other Ways to Reach Us</h4>
+                    <div class="row mt-4">
+                        <div class="col-md-4 text-center mb-3">
+                            <i data-feather="phone" class="mb-3" style="width: 32px; height: 32px;"></i>
+                            <h5>Phone</h5>
+                            <p>+919876543210</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-3">
+                            <i data-feather="mail" class="mb-3" style="width: 32px; height: 32px;"></i>
+                            <h5>Email</h5>
+                            <p>support@transport.com</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-3">
+                            <i data-feather="map-pin" class="mb-3" style="width: 32px; height: 32px;"></i>
+                            <h5>Address</h5>
+                            <p>123 Transport Street<br>Logistics City, TC 12345</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+{% endblock %}

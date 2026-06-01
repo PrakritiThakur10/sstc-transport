@@ -1,0 +1,26 @@
+import project1
+import project2
+import project3
+
+def main():
+    print("Choose which file to run:")
+    print("1. CALCULATER")
+    print("2. PASSWORD GENERTOR")
+    print("3. fibonacci series genertor")
+    print("4. Run File 4")
+    
+    choice = input("Enter the number (1-4): ")
+    
+    if choice == "1":
+        project1.run()
+    elif choice == "2":
+        project2.run()
+    elif choice == "3":
+        project3.run()
+    elif choice == "4":
+        file4.run()
+    else:
+        print("Invalid input. Please choose a number between 1 and 4.")
+
+if __name__ == "__main__":
+    main()

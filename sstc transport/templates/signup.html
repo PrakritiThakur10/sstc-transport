@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Sign Up</h3>
+            </div>
+            <div class="card-body">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="account_type" id="customer" value="customer" checked>
+                            <label class="form-check-label" for="customer">
+                                Customer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="account_type" id="admin" value="admin">
+                            <label class="form-check-label" for="admin">
+                                Admin
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3 admin-password-field" style="display: none;">
+                        <label for="admin_password" class="form-label">Admin Password</label>
+                        <input type="password" class="form-control" id="admin_password" name="admin_password">
+                        <div class="form-text">Required for admin accounts.</div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                </form>
+                <div class="mt-3 text-center">
+                    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the radio buttons and admin password field
+        const customerRadio = document.getElementById('customer');
+        const adminRadio = document.getElementById('admin');
+        const adminPasswordField = document.querySelector('.admin-password-field');
+        const adminPasswordInput = document.getElementById('admin_password');
+        
+        // Function to toggle admin password field visibility
+        function toggleAdminPasswordField() {
+            if (adminRadio.checked) {
+                adminPasswordField.style.display = 'block';
+                adminPasswordInput.setAttribute('required', 'required');
+            } else {
+                adminPasswordField.style.display = 'none';
+                adminPasswordInput.removeAttribute('required');
+            }
+        }
+        
+        // Initial state
+        toggleAdminPasswordField();
+        
+        // Add event listeners
+        customerRadio.addEventListener('change', toggleAdminPasswordField);
+        adminRadio.addEventListener('change', toggleAdminPasswordField);
+    });
+</script>
+{% endblock %}
